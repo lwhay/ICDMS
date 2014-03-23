@@ -1,0 +1,3 @@
+SELECT *
+FROM FILTER{Name = 'IBM'} (Stock) NEXT{$1.Name = $2.Name} FILTER{Name = 'IBM'} (Stock)
+PUBLISH T40

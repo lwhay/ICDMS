@@ -1,0 +1,4 @@
+SELECT Name
+FROM FILTER{Name = 'IBM'} Stock
+PUBLISH T18
+

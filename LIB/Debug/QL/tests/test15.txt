@@ -1,0 +1,2 @@
+SELECT '' as Name, 0.0 as Price, 0 as Volume FROM DUAL
+PUBLISH T15

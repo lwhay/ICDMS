@@ -1,0 +1,73 @@
+<NFA>
+<Node NodeID="0" NodeType="START" InputStreamName="Stock">
+<ForwardEdge Destination="1">
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Volume" NewAttr="Volume_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="DUR" NewAttr="DUR_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name_n"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price_n"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Volume" NewAttr="Volume_n"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="DUR" NewAttr="DUR_n"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="1" NodeType="INTERMEDIATE_OR_END" InputStreamName="Stock">
+<Schema>
+<AttrName Name="Name_1" Type="string"/>
+<AttrName Name="Price_1" Type="float"/>
+<AttrName Name="Volume_1" Type="int"/>
+<AttrName Name="DUR_1" Type="float"/>
+<AttrName Name="Name_n" Type="string"/>
+<AttrName Name="Price_n" Type="float"/>
+<AttrName Name="Volume_n" Type="int"/>
+<AttrName Name="DUR_n" Type="float"/>
+</Schema>
+<FilterEdge>
+<EvalFunc>
+<PredClause>
+<DynamicPred EventAttr="Name" OP="=" NodeAttr="Name_1"/>
+<DynamicPred EventAttr="Price" OP=">" NodeAttr="Price_n"/>
+</PredClause>
+</EvalFunc>
+</FilterEdge>
+<RebindEdge>
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Name_1" NewAttr="Name_1"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Price_1" NewAttr="Price_1"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Volume_1" NewAttr="Volume_1"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="DUR_1" NewAttr="DUR_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name_n"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price_n"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Volume" NewAttr="Volume_n"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="DUR" NewAttr="DUR_n"/>
+</SchemaMap>
+</RebindEdge>
+<ForwardEdge Destination="2">
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Name_1" NewAttr="Name_1"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Price_1" NewAttr="Price_1"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Volume_1" NewAttr="Volume_1"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="DUR_1" NewAttr="DUR_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Volume" NewAttr="Volume"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="DUR" NewAttr="DUR"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="2" NodeType="INTERMEDIATE_OR_END" >
+<Schema>
+<AttrName Name="Name_1" Type="string"/>
+<AttrName Name="Price_1" Type="float"/>
+<AttrName Name="Volume_1" Type="int"/>
+<AttrName Name="DUR_1" Type="float"/>
+<AttrName Name="Name" Type="string"/>
+<AttrName Name="Price" Type="float"/>
+<AttrName Name="Volume" Type="int"/>
+<AttrName Name="DUR" Type="float"/>
+</Schema>
+<OutputStreamName Name="T10" Type="OUT"/>
+</Node>
+</NFA>

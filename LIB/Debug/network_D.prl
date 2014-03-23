@@ -1,0 +1,5 @@
+QMAKE_PRL_BUILD_DIR = D:/xiaoleiluo/ICDSMS-build-desktop-Qt_4_7_4_for_Desktop_-_MinGW_4_4__Qt_SDK____/BASELIB/network/
+QMAKE_PRO_INPUT = network.pro
+QMAKE_PRL_TARGET = libnetwork_D
+QMAKE_PRL_CONFIG = include_source_dir lex yacc warn_on uic resources incremental_off windows release ReleaseBuild Release build_pass qt warn_on release link_prl copy_dir_files debug_and_release debug_and_release_target precompile_header stl exceptions rtti mmx 3dnow sse sse2 release ReleaseBuild Release build_pass staticlib link_prl create_prl release ReleaseBuild Release build_pass no_autoqmake static staticlib moc thread
+QMAKE_PRL_LIBS = -LD:/xiaoleiluo/ICDSMS/BASELIB/network/../../LIB/Debug/ -lcorelib_D -lwsock32 -lws2_32  

@@ -1,0 +1,24 @@
+SELECT Name, PriceA, PriceB, PriceC, PriceD, Price AS PriceE, LastPrice AS PriceF
+FROM FILTER {LastPrice >= Price AND LastPrice <= PriceA}
+	 (FILTER{Price <= 1.1*PriceB} (
+	 SELECT Name, PriceA, PriceB, PriceC, Price_1 AS PriceD, Price
+	 FROM 
+	 FILTER{Price >= 0.9*PriceB} (
+	 SELECT Name, PriceA, PriceB, Price_1 AS PriceC, Price
+	 FROM 
+	 FILTER{Price >= 0.9*PriceA AND Price <= 1.1*PriceA} (
+	 SELECT Name, PriceA, Price_1 AS PriceB, Price
+	 FROM 
+	 FILTER{Price >= 1.2*PriceA} (
+	 SELECT Name, Price_1 AS PriceA, Price 
+	 FROM 
+	 FILTER {Price < StartPrice} 
+	 (SELECT Name, Price_1 AS StartPrice, Price FROM (SELECT Name, Price FROM Stock) NEXT {$1.Name=$2.Name} (SELECT Name, Price FROM Stock))
+	 FOLD {$1.Name = $2.Name, $2.Price >= $.Price,} (SELECT Name, Price FROM Stock))
+	 FOLD {$1.Name = $2.Name, $2.Price <= $.Price,} (SELECT Name, Price FROM Stock))
+	 FOLD {$1.Name = $2.Name, $2.Price >= $.Price,} (SELECT Name, Price FROM Stock))
+	 FOLD {$1.Name = $2.Name, $2.Price <= $.Price,} (SELECT Name, Price FROM Stock))
+		  NEXT {$1.Name = $2.n} 
+		(SELECT Name AS n, Price AS LastPrice FROM Stock)
+	)
+PUBLISH MShapeStock

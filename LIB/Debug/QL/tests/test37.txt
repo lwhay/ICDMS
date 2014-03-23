@@ -1,0 +1,3 @@
+SELECT *
+FROM Stock NEXT{DUR < 1000} Stock
+PUBLISH T37

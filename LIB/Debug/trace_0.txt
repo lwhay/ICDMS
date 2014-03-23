@@ -1,0 +1,152 @@
+2,AIR,<NFA>
+<Window  WindowID="1" WindowType="COUNTWINDOW" WindowSize="5" SlideStep="2" Start="0" >
+</Window>
+<Node NodeID="0" NodeType="START" InputStreamName="Stock">
+<ForwardEdge Destination="1">
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price_1"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="1" NodeType="INTERMEDIATE_OR_END" InputStreamName="Stock">
+<Schema>
+<AttrName Name="Name_1" Type="string"/>
+<AttrName Name="Price_1" Type="float"/>
+</Schema>
+<FilterEdge>
+<EvalFunc>
+<PredClause>
+<DynamicPred EventAttr="Name" OP="=" NodeAttr="Name_1"/>
+</PredClause>
+</EvalFunc>
+</FilterEdge>
+<ForwardEdge Destination="2">
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Name_1" NewAttr="Name_1"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Price_1" NewAttr="Price_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="2" NodeType="INTERMEDIATE_OR_END" >
+<Schema>
+<AttrName Name="Name_1" Type="string"/>
+<AttrName Name="Price_1" Type="float"/>
+<AttrName Name="Name" Type="string"/>
+<AttrName Name="Price" Type="float"/>
+</Schema>
+<OutputStreamName Name="windowtest0413a" Type="OUT"/>
+</Node>
+</NFA>
+,
+1,EOE,
+8,EVENT,Name,0,Price,74.75,Stock,0,0,
+11,INSTANCE,Name_1,0,Price_1,74.75,0,-1,1,23,0,0,
+1,EOE,
+8,EVENT,Name,1,Price,35,Stock,1,1,
+11,INSTANCE,Name_1,1,Price_1,35,0,-1,1,24,1,1,
+1,EOE,
+8,EVENT,Name,2,Price,572,Stock,2,2,
+11,INSTANCE,Name_1,2,Price_1,572,0,-1,1,25,2,2,
+1,EOE,
+8,EVENT,Name,0,Price,74.375,Stock,3,3,
+11,INSTANCE,Name_1,0,Price_1,74.375,0,-1,1,26,3,3,
+15,INSTANCE,Name_1,0,Price_1,74.75,Name,0,Price,74.375,1,23,2,27,0,3,
+12,WITNESS,Name_1,0,Price_1,74.75,Name,0,Price,74.375,windowtest0413a,0,3,
+1,EOE,
+8,EVENT,Name,1,Price,34.815,Stock,4,4,
+11,INSTANCE,Name_1,1,Price_1,34.815,0,-1,1,28,4,4,
+15,INSTANCE,Name_1,1,Price_1,35,Name,1,Price,34.815,1,24,2,29,1,4,
+12,WITNESS,Name_1,1,Price_1,35,Name,1,Price,34.815,windowtest0413a,1,4,
+1,EOE,
+8,EVENT,Name,2,Price,574.5,Stock,5,5,
+11,INSTANCE,Name_1,2,Price_1,574.5,0,-1,1,30,5,5,
+15,INSTANCE,Name_1,2,Price_1,572,Name,2,Price,574.5,1,25,2,31,2,5,
+12,WITNESS,Name_1,2,Price_1,572,Name,2,Price,574.5,windowtest0413a,2,5,
+1,EOE,
+8,EVENT,Name,0,Price,73.9567,Stock,6,6,
+11,INSTANCE,Name_1,0,Price_1,73.9567,0,-1,1,32,6,6,
+15,INSTANCE,Name_1,0,Price_1,74.375,Name,0,Price,73.9567,1,26,2,33,3,6,
+12,WITNESS,Name_1,0,Price_1,74.375,Name,0,Price,73.9567,windowtest0413a,3,6,
+1,EOE,
+8,EVENT,Name,1,Price,34.5033,Stock,7,7,
+11,INSTANCE,Name_1,1,Price_1,34.5033,0,-1,1,34,7,7,
+15,INSTANCE,Name_1,1,Price_1,34.815,Name,1,Price,34.5033,1,28,2,35,4,7,
+12,WITNESS,Name_1,1,Price_1,34.815,Name,1,Price,34.5033,windowtest0413a,4,7,
+1,EOE,
+8,EVENT,Name,2,Price,573.417,Stock,8,8,
+11,INSTANCE,Name_1,2,Price_1,573.417,0,-1,1,36,8,8,
+15,INSTANCE,Name_1,2,Price_1,574.5,Name,2,Price,573.417,1,30,2,37,5,8,
+12,WITNESS,Name_1,2,Price_1,574.5,Name,2,Price,573.417,windowtest0413a,5,8,
+1,EOE,
+8,EVENT,Name,0,Price,73.28,Stock,9,9,
+11,INSTANCE,Name_1,0,Price_1,73.28,0,-1,1,38,9,9,
+15,INSTANCE,Name_1,0,Price_1,73.9567,Name,0,Price,73.28,1,32,2,39,6,9,
+12,WITNESS,Name_1,0,Price_1,73.9567,Name,0,Price,73.28,windowtest0413a,6,9,
+1,EOE,
+8,EVENT,Name,1,Price,34.16,Stock,10,10,
+11,INSTANCE,Name_1,1,Price_1,34.16,0,-1,1,40,10,10,
+15,INSTANCE,Name_1,1,Price_1,34.5033,Name,1,Price,34.16,1,34,2,41,7,10,
+12,WITNESS,Name_1,1,Price_1,34.5033,Name,1,Price,34.16,windowtest0413a,7,10,
+1,EOE,
+8,EVENT,Name,2,Price,570.062,Stock,11,11,
+11,INSTANCE,Name_1,2,Price_1,570.062,0,-1,1,42,11,11,
+15,INSTANCE,Name_1,2,Price_1,573.417,Name,2,Price,570.062,1,36,2,43,8,11,
+12,WITNESS,Name_1,2,Price_1,573.417,Name,2,Price,570.062,windowtest0413a,8,11,
+1,EOE,
+8,EVENT,Name,0,Price,72.848,Stock,12,12,
+11,INSTANCE,Name_1,0,Price_1,72.848,0,-1,1,44,12,12,
+15,INSTANCE,Name_1,0,Price_1,73.28,Name,0,Price,72.848,1,38,2,45,9,12,
+12,WITNESS,Name_1,0,Price_1,73.28,Name,0,Price,72.848,windowtest0413a,9,12,
+1,EOE,
+8,EVENT,Name,1,Price,34.054,Stock,13,13,
+11,INSTANCE,Name_1,1,Price_1,34.054,0,-1,1,46,13,13,
+15,INSTANCE,Name_1,1,Price_1,34.16,Name,1,Price,34.054,1,40,2,47,10,13,
+12,WITNESS,Name_1,1,Price_1,34.16,Name,1,Price,34.054,windowtest0413a,10,13,
+1,EOE,
+8,EVENT,Name,2,Price,565.95,Stock,14,14,
+11,INSTANCE,Name_1,2,Price_1,565.95,0,-1,1,48,14,14,
+15,INSTANCE,Name_1,2,Price_1,570.062,Name,2,Price,565.95,1,42,2,49,11,14,
+12,WITNESS,Name_1,2,Price_1,570.062,Name,2,Price,565.95,windowtest0413a,11,14,
+1,EOE,
+8,EVENT,Name,0,Price,72.6233,Stock,15,15,
+11,INSTANCE,Name_1,0,Price_1,72.6233,0,-1,1,50,15,15,
+15,INSTANCE,Name_1,0,Price_1,72.848,Name,0,Price,72.6233,1,44,2,51,12,15,
+12,WITNESS,Name_1,0,Price_1,72.848,Name,0,Price,72.6233,windowtest0413a,12,15,
+1,EOE,
+8,EVENT,Name,1,Price,34.0667,Stock,16,16,
+11,INSTANCE,Name_1,1,Price_1,34.0667,0,-1,1,52,16,16,
+15,INSTANCE,Name_1,1,Price_1,34.054,Name,1,Price,34.0667,1,46,2,53,13,16,
+12,WITNESS,Name_1,1,Price_1,34.054,Name,1,Price,34.0667,windowtest0413a,13,16,
+1,EOE,
+8,EVENT,Name,2,Price,564.292,Stock,17,17,
+11,INSTANCE,Name_1,2,Price_1,564.292,0,-1,1,54,17,17,
+15,INSTANCE,Name_1,2,Price_1,565.95,Name,2,Price,564.292,1,48,2,55,14,17,
+12,WITNESS,Name_1,2,Price_1,565.95,Name,2,Price,564.292,windowtest0413a,14,17,
+1,EOE,
+8,EVENT,Name,0,Price,72.5157,Stock,18,18,
+11,INSTANCE,Name_1,0,Price_1,72.5157,0,-1,1,56,18,18,
+15,INSTANCE,Name_1,0,Price_1,72.6233,Name,0,Price,72.5157,1,50,2,57,15,18,
+12,WITNESS,Name_1,0,Price_1,72.6233,Name,0,Price,72.5157,windowtest0413a,15,18,
+1,EOE,
+8,EVENT,Name,1,Price,34.1114,Stock,19,19,
+11,INSTANCE,Name_1,1,Price_1,34.1114,0,-1,1,58,19,19,
+15,INSTANCE,Name_1,1,Price_1,34.0667,Name,1,Price,34.1114,1,52,2,59,16,19,
+12,WITNESS,Name_1,1,Price_1,34.0667,Name,1,Price,34.1114,windowtest0413a,16,19,
+1,EOE,
+8,EVENT,Name,2,Price,563.25,Stock,20,20,
+11,INSTANCE,Name_1,2,Price_1,563.25,0,-1,1,60,20,20,
+15,INSTANCE,Name_1,2,Price_1,564.292,Name,2,Price,563.25,1,54,2,61,17,20,
+12,WITNESS,Name_1,2,Price_1,564.292,Name,2,Price,563.25,windowtest0413a,17,20,
+1,EOE,
+8,EVENT,Name,0,Price,72.4512,Stock,21,21,
+11,INSTANCE,Name_1,0,Price_1,72.4512,0,-1,1,62,21,21,
+15,INSTANCE,Name_1,0,Price_1,72.5157,Name,0,Price,72.4512,1,56,2,63,18,21,
+12,WITNESS,Name_1,0,Price_1,72.5157,Name,0,Price,72.4512,windowtest0413a,18,21,
+1,EOE,
+8,EVENT,Name,1,Price,34.1287,Stock,22,22,
+11,INSTANCE,Name_1,1,Price_1,34.1287,0,-1,1,64,22,22,
+15,INSTANCE,Name_1,1,Price_1,34.1114,Name,1,Price,34.1287,1,58,2,65,19,22,
+12,WITNESS,Name_1,1,Price_1,34.1114,Name,1,Price,34.1287,windowtest0413a,19,22,

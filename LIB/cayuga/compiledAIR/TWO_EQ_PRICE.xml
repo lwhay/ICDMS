@@ -1,0 +1,34 @@
+<NFA>
+<Node NodeID="0" NodeType="START" InputStreamName="Stock">
+<ForwardEdge Destination="1">
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price_1"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="1" NodeType="INTERMEDIATE_OR_END" InputStreamName="Stock">
+<Schema>
+<AttrName Name="Price_1" Type="float"/>
+</Schema>
+<FilterEdge>
+<EvalFunc>
+<PredClause>
+<DynamicPred EventAttr="Price" OP="=" NodeAttr="Price_1"/>
+</PredClause>
+</EvalFunc>
+</FilterEdge>
+<ForwardEdge Destination="7">
+<EvalFunc>
+</EvalFunc>
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="7" NodeType="INTERMEDIATE_OR_END" >
+<Schema>
+<AttrName Name="Name" Type="string"/>
+</Schema>
+<OutputStreamName Name="TWO_EQ_PRICE" Type="OUT"/>
+</Node>
+</NFA>

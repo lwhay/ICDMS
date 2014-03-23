@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config xmlns="http://tempuri.org/ConfigSchema.xsd">
+  <Option Name="SaveInternalState" Value="FALSE"/>
+  <Option Name="QueryInputMode" Value="FILE"/>
+  <Option Name="QueryInputName" Value="test1.xml"/>
+  <Option Name="QueryNumber" Value="1"/>
+  <Option Name="StreamSchema" Value="StockRelSchema.xml"/>
+  <Option Name="DocInputMode" Value="FILE"/>
+  <Option Name="DocInputName" Value="Stream.txt"/>
+  <Option Name="DocInputStream" Value="Stock"/>
+  <Option Name="DocNumber" Value="1"/>
+  <Option Name="GCSize" Value="1"/>
+  <Option Name="Verbose" Value="true"/>
+  <Option Name="RecordTrace" Value="true"/>
+  <Option Name="SendTrace" Value="false"/>
+  <Option Name="Measure" Value="true"/>
+</Config>

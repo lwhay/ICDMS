@@ -1,0 +1,3 @@
+SELECT *
+FROM Stock FOLD{$1.Name = $2.Name, ,} (SELECT Name FROM Stock) FOLD{$1.Price = $2.Price,,}  (SELECT Price FROM Stock)
+PUBLISH T21

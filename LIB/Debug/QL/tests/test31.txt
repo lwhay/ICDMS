@@ -1,0 +1,3 @@
+SELECT *
+FROM Stock NEXT{$1.Price < $2.Price} Stock
+PUBLISH T31

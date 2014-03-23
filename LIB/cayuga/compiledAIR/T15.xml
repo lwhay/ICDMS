@@ -1,0 +1,19 @@
+<NFA>
+<Node NodeID="0" NodeType="START" InputStreamName="DUAL">
+<ForwardEdge Destination="1">
+<SchemaMap>
+<UDF Expr="''" Attr="Name"/>
+<UDF Expr="0.0" Attr="Price"/>
+<UDF Expr="0" Attr="Volume"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="1" NodeType="INTERMEDIATE_OR_END" >
+<Schema>
+<AttrName Name="Name" Type="string"/>
+<AttrName Name="Price" Type="float"/>
+<AttrName Name="Volume" Type="int"/>
+</Schema>
+<OutputStreamName Name="T15" Type="OUT"/>
+</Node>
+</NFA>

@@ -1,0 +1,6 @@
+QMAKE_PRL_BUILD_DIR = /home/michaelwork/Research/ICDSMS-build-desktop-Qt_4_7_4_for_Desktop_-_MinGW_4_4__Qt_SDK____/ICDSMSCE
+QMAKE_PRO_INPUT = ICDSMSCE.pro
+QMAKE_PRL_TARGET = libICDSMSCE_D.a
+QMAKE_PRL_CONFIG = include_source_dir lex yacc warn_on debug uic resources qt warn_on incremental link_prl def_files_disabled exceptions no_mocdepend stl qt_no_framework debug staticlib link_prl create_prl static staticlib moc thread
+QMAKE_PRL_VERSION = 1.0.0
+QMAKE_PRL_LIBS = -L/home/michaelwork/Program/QtSDK/Desktop/Qt/474/gcc/lib  -L/home/michaelwork/Research/ICDSMS/ICDSMSCE/../LIB/Debug/ -lnetwork_D -L/home/michaelwork/Program/QtSDK/Desktop/Qt/474/gcc/lib -L/home/michaelwork/Research/ICDSMS/BASELIB/network/../../LIB/Debug/ -lcorelib_D -lantlr_D -lpthread  

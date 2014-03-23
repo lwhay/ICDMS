@@ -1,0 +1,3 @@
+SELECT *
+FROM FILTER{Price > 60.5} (Stock) NEXT{$1.Name = $2.Name} Stock
+PUBLISH T19

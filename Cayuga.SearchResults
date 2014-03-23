@@ -1,0 +1,18 @@
+---- SlidePoint Matches (4 in 3 files) ----
+inputWindow.cpp (f:\cayuga-system\cayuga-system\cayuga\src\basicdatastructure\window):EventID inputWindow ::SlidePoint(multiset<Event * , endTimeLess>::iterator &wq_ptr){
+inputWindow.h (f:\cayuga-system\cayuga-system\cayuga\inc\basicdatastructure\window):	EventID SlidePoint(multiset<Event * , endTimeLess>::iterator &wq_ptr);
+QueryProcessorImpl.cpp (f:\cayuga-system\cayuga-system\cayuga\src\queryprocessor):	EventID PointID = pinWQ->SlidePoint(pinWQ->_windowevents.begin());
+QueryProcessorImpl.cpp (f:\cayuga-system\cayuga-system\cayuga\src\queryprocessor):			PointID=pinWQ->SlidePoint(pinWQ->_windowevents.begin());
+---- queue_over Matches (3 in 3 files) ----
+inputWindow.cpp (f:\cayuga-system\cayuga-system\cayuga\src\basicdatastructure\window):bool inputWindow::queue_over()
+inputWindow.h (f:\cayuga-system\cayuga-system\cayuga\inc\basicdatastructure\window):	bool  queue_over();
+QueryProcessorImpl.cpp (f:\cayuga-system\cayuga-system\cayuga\src\queryprocessor):       if (pinWQ->queue_over())
+---- erase_queue Matches (3 in 3 files) ----
+inputWindow.cpp (f:\cayuga-system\cayuga-system\cayuga\src\basicdatastructure\window):void  inputWindow::erase_queue(multiset<Event* , endTimeLess>::iterator first, 
+inputWindow.h (f:\cayuga-system\cayuga-system\cayuga\inc\basicdatastructure\window):	void  erase_queue(multiset<Event* , endTimeLess>::iterator first, 
+QueryProcessorImpl.cpp (f:\cayuga-system\cayuga-system\cayuga\src\queryprocessor):		pinWQ->erase_queue(instead,pinWQ->getEraseLine(instead));
+---- SlidePoint Matches (4 in 3 files) ----
+inputWindow.cpp (f:\cayuga-system\cayuga-system\cayuga\src\basicdatastructure\window):EventID inputWindow ::SlidePoint(multiset<Event * , endTimeLess>::iterator &wq_ptr){
+inputWindow.h (f:\cayuga-system\cayuga-system\cayuga\inc\basicdatastructure\window):	EventID SlidePoint(multiset<Event * , endTimeLess>::iterator &wq_ptr);
+QueryProcessorImpl.cpp (f:\cayuga-system\cayuga-system\cayuga\src\queryprocessor):	EventID PointID = pinWQ->SlidePoint(pinWQ->_windowevents.begin());
+QueryProcessorImpl.cpp (f:\cayuga-system\cayuga-system\cayuga\src\queryprocessor):			PointID=pinWQ->SlidePoint(pinWQ->_windowevents.begin());

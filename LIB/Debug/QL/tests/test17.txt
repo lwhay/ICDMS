@@ -1,0 +1,3 @@
+SELECT *, Price as SumPrice 
+FROM Stock
+PUBLISH T17

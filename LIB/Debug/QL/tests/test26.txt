@@ -1,0 +1,3 @@
+SELECT *
+FROM FILTER{Name = 'IBM' AND Price <= 100}(Stock) NEXT{$2.Price < 200} Stock
+PUBLISH T26

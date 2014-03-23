@@ -1,0 +1,12 @@
+#ifndef RECEIVER_GLOBAL_H
+#define RECEIVER_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(RECEIVER_LIBRARY)
+#  define RECEIVERSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define RECEIVERSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // RECEIVER_GLOBAL_H

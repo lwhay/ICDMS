@@ -1,0 +1,21 @@
+<NFA>
+<Node NodeID="0" NodeType="START" InputStreamName="Stock">
+<ForwardEdge Destination="1">
+<SchemaMap>
+<UDF Expr="(1)+(2)" Attr="Number"/>
+<UDF Expr="'myName'" Attr="Name"/>
+<UDF Expr="CONTAINS(EV.Name, 'IBM')" Attr="isIBM"/>
+<UDF Expr="'SIM QUERY'" Attr="subject"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="1" NodeType="INTERMEDIATE_OR_END" >
+<Schema>
+<AttrName Name="Number" Type="int"/>
+<AttrName Name="Name" Type="string"/>
+<AttrName Name="isIBM" Type="int"/>
+<AttrName Name="subject" Type="string"/>
+</Schema>
+<OutputStreamName Name="T12" Type="OUT"/>
+</Node>
+</NFA>

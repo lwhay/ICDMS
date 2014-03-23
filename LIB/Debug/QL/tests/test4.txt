@@ -1,0 +1,3 @@
+SELECT *
+FROM FILTER{Name = 'IBM' AND Price > 100 OR Name = 'MSFT' AND Price > 200}(Stock)
+PUBLISH T4

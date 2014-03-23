@@ -1,0 +1,3 @@
+SELECT *
+FROM (SELECT *, 1 AS cnt, Price AS sumPrice FROM Stock) FOLD{$1.Name = $2.Name, $.Price < $2.Price, $.cnt + 1 AS cnt, $.sumPrice + $2.Price AS sumPrice} Stock
+PUBLISH T27

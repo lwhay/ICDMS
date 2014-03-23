@@ -1,0 +1,4 @@
+SELECT IBMPrice, Price, Name
+FROM IBMStock
+NEXT{IBMPrice < $2.Price} (Stock)
+PUBLISH IBM_OTHER_PAIR

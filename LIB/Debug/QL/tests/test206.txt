@@ -1,0 +1,7 @@
+SELECT *
+FROM FILTER{cnt > 10} (
+(SELECT *, 1 AS cnt FROM
+FILTER{Volume > 10000}(Stock))
+FOLD{$2.Name = $.Name, $2.Price > $.Price,
+$.cnt+1 AS cnt} Stock)
+PUBLISH LONG_MONOTONIC_INC

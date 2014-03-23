@@ -1,0 +1,17 @@
+<NFA>
+<Node NodeID="0" NodeType="START" InputStreamName="Stock">
+<ForwardEdge Destination="1">
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="1" NodeType="INTERMEDIATE_OR_END" >
+<Schema>
+<AttrName Name="Name" Type="string"/>
+<AttrName Name="Price" Type="float"/>
+</Schema>
+<OutputStreamName Name="T1" Type="OUT"/>
+</Node>
+</NFA>

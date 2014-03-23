@@ -1,0 +1,3 @@
+SELECT *
+FROM Stock FOLD{$1.Name = $2.Name, ,} (SELECT Name FROM Stock)
+PUBLISH T11

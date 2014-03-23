@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StreamType xmlns="http://tempuri.org/SIR_Schema.xsd" Name="CTC">
+	<AttrNameType Name="Name" Type="string"></AttrNameType>
+	<AttrNameType Name="Type" Type="int"></AttrNameType>
+	<AttrNameType Name="Priority" Type="string"></AttrNameType>
+	<AttrNameType Name="Description" Type="string"></AttrNameType>
+</StreamType>

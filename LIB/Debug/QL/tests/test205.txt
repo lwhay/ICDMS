@@ -1,0 +1,4 @@
+SELECT Name
+FROM (SELECT Price FROM Stock)
+NEXT{$1.Price = $2.Price} (Stock)
+PUBLISH TWO_EQ_PRICE

@@ -1,0 +1,2 @@
+
+SUBDIRS = Automaton Event Predicate

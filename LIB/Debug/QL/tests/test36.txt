@@ -1,0 +1,5 @@
+SELECT *
+FROM Stock NEXT{$1.Name = $2.Name} Stock NEXT{$1.Name = $2.n3} (
+	 SELECT Name as n3 
+	 FROM FILTER{Name='IBM'}(Stock))
+PUBLISH T36

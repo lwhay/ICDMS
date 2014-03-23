@@ -1,0 +1,36 @@
+<NFA>
+<Node NodeID="2" NodeType="START" InputStreamName="IBMStock">
+<ForwardEdge Destination="3">
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="IBMPrice" NewAttr="IBMPrice"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="3" NodeType="INTERMEDIATE_OR_END" InputStreamName="Stock">
+<Schema>
+<AttrName Name="IBMPrice" Type="float"/>
+</Schema>
+<FilterEdge>
+<EvalFunc>
+<PredClause>
+<StaticPred EventAttr="Name" OP="=" Const="MSFT"/>
+</PredClause>
+</EvalFunc>
+</FilterEdge>
+<ForwardEdge Destination="4">
+<EvalFunc>
+</EvalFunc>
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="IBMPrice" NewAttr="IBMPrice"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="MSFTPrice"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="4" NodeType="INTERMEDIATE_OR_END" >
+<Schema>
+<AttrName Name="IBMPrice" Type="float"/>
+<AttrName Name="MSFTPrice" Type="float"/>
+</Schema>
+<OutputStreamName Name="IBM_MSFT_PAIR" Type="OUT"/>
+</Node>
+</NFA>

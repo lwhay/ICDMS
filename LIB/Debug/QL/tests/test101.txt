@@ -1,0 +1,5 @@
+SELECT summary, url FROM
+(SELECT item_url AS url FROM webfeeds)
+NEXT {CONTAINS($2.item_url,$1.url)=1}
+(google_news_items)
+PUBLISH reffed_by_google_news

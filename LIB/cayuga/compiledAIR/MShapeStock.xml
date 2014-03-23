@@ -1,0 +1,270 @@
+<NFA>
+<Node NodeID="0" NodeType="START" InputStreamName="Stock">
+<ForwardEdge Destination="1">
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price_1"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="1" NodeType="INTERMEDIATE_OR_END" InputStreamName="Stock">
+<Schema>
+<AttrName Name="Name_1" Type="string"/>
+<AttrName Name="Price_1" Type="float"/>
+</Schema>
+<FilterEdge>
+<EvalFunc>
+<PredClause>
+<DynamicPred EventAttr="Name" OP="=" NodeAttr="Name_1"/>
+</PredClause>
+</EvalFunc>
+</FilterEdge>
+<ForwardEdge Destination="7">
+<EvalFunc>
+<PredClause>
+<ComplexPred Expr="EV.Price&lt;NODE.Price_1"/>
+</PredClause>
+</EvalFunc>
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name_1"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Price_1" NewAttr="StartPrice_n"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name_n"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price_n"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="7" NodeType="INTERMEDIATE_OR_END" InputStreamName="Stock">
+<Schema>
+<AttrName Name="Name_1" Type="string"/>
+<AttrName Name="StartPrice_n" Type="float"/>
+<AttrName Name="Price_1" Type="float"/>
+<AttrName Name="Name_n" Type="string"/>
+<AttrName Name="Price_n" Type="float"/>
+</Schema>
+<FilterEdge>
+<EvalFunc>
+<PredClause>
+<DynamicPred EventAttr="Name" OP="=" NodeAttr="Name_1"/>
+</PredClause>
+</EvalFunc>
+</FilterEdge>
+<RebindEdge>
+<EvalFunc>
+<PredClause>
+<DynamicPred EventAttr="Price" OP=">=" NodeAttr="Price_n"/>
+</PredClause>
+</EvalFunc>
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Name_1" NewAttr="Name_1"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="StartPrice_n" NewAttr="StartPrice_n"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Price_1" NewAttr="Price_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name_n"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price_n"/>
+</SchemaMap>
+</RebindEdge>
+<ForwardEdge Destination="13">
+<EvalFunc>
+<PredClause>
+<ComplexPred Expr="EV.Price>=1.2*NODE.Price_1"/>
+</PredClause>
+</EvalFunc>
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name_1"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Price_1" NewAttr="PriceA_n"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name_n"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price_n"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="13" NodeType="INTERMEDIATE_OR_END" InputStreamName="Stock">
+<Schema>
+<AttrName Name="Name_1" Type="string"/>
+<AttrName Name="PriceA_n" Type="float"/>
+<AttrName Name="Price_1" Type="float"/>
+<AttrName Name="Name_n" Type="string"/>
+<AttrName Name="Price_n" Type="float"/>
+</Schema>
+<FilterEdge>
+<EvalFunc>
+<PredClause>
+<DynamicPred EventAttr="Name" OP="=" NodeAttr="Name_1"/>
+</PredClause>
+</EvalFunc>
+</FilterEdge>
+<RebindEdge>
+<EvalFunc>
+<PredClause>
+<DynamicPred EventAttr="Price" OP="&lt;=" NodeAttr="Price_n"/>
+</PredClause>
+</EvalFunc>
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Name_1" NewAttr="Name_1"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="PriceA_n" NewAttr="PriceA_n"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Price_1" NewAttr="Price_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name_n"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price_n"/>
+</SchemaMap>
+</RebindEdge>
+<ForwardEdge Destination="19">
+<EvalFunc>
+<PredClause>
+<ComplexPred Expr="EV.Price>=0.9*NODE.PriceA_n"/>
+<ComplexPred Expr="EV.Price&lt;=1.1*NODE.PriceA_n"/>
+</PredClause>
+</EvalFunc>
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name_1"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="PriceA_n" NewAttr="PriceA_n"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Price_1" NewAttr="PriceB_n"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name_n"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price_n"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="19" NodeType="INTERMEDIATE_OR_END" InputStreamName="Stock">
+<Schema>
+<AttrName Name="Name_1" Type="string"/>
+<AttrName Name="PriceA_n" Type="float"/>
+<AttrName Name="PriceB_n" Type="float"/>
+<AttrName Name="Price_1" Type="float"/>
+<AttrName Name="Name_n" Type="string"/>
+<AttrName Name="Price_n" Type="float"/>
+</Schema>
+<FilterEdge>
+<EvalFunc>
+<PredClause>
+<DynamicPred EventAttr="Name" OP="=" NodeAttr="Name_1"/>
+</PredClause>
+</EvalFunc>
+</FilterEdge>
+<RebindEdge>
+<EvalFunc>
+<PredClause>
+<DynamicPred EventAttr="Price" OP=">=" NodeAttr="Price_n"/>
+</PredClause>
+</EvalFunc>
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Name_1" NewAttr="Name_1"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="PriceA_n" NewAttr="PriceA_n"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="PriceB_n" NewAttr="PriceB_n"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Price_1" NewAttr="Price_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name_n"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price_n"/>
+</SchemaMap>
+</RebindEdge>
+<ForwardEdge Destination="25">
+<EvalFunc>
+<PredClause>
+<ComplexPred Expr="EV.Price>=0.9*NODE.PriceB_n"/>
+</PredClause>
+</EvalFunc>
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name_1"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="PriceA_n" NewAttr="PriceA_n"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="PriceB_n" NewAttr="PriceB_n"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Price_1" NewAttr="PriceC_n"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name_n"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price_n"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="25" NodeType="INTERMEDIATE_OR_END" InputStreamName="Stock">
+<Schema>
+<AttrName Name="Name_1" Type="string"/>
+<AttrName Name="PriceA_n" Type="float"/>
+<AttrName Name="PriceB_n" Type="float"/>
+<AttrName Name="PriceC_n" Type="float"/>
+<AttrName Name="Price_1" Type="float"/>
+<AttrName Name="Name_n" Type="string"/>
+<AttrName Name="Price_n" Type="float"/>
+</Schema>
+<FilterEdge>
+<EvalFunc>
+<PredClause>
+<DynamicPred EventAttr="Name" OP="=" NodeAttr="Name_1"/>
+</PredClause>
+</EvalFunc>
+</FilterEdge>
+<RebindEdge>
+<EvalFunc>
+<PredClause>
+<DynamicPred EventAttr="Price" OP="&lt;=" NodeAttr="Price_n"/>
+</PredClause>
+</EvalFunc>
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Name_1" NewAttr="Name_1"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="PriceA_n" NewAttr="PriceA_n"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="PriceB_n" NewAttr="PriceB_n"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="PriceC_n" NewAttr="PriceC_n"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Price_1" NewAttr="Price_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name_n"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price_n"/>
+</SchemaMap>
+</RebindEdge>
+<ForwardEdge Destination="31">
+<EvalFunc>
+<PredClause>
+<ComplexPred Expr="EV.Price&lt;=1.1*NODE.PriceB_n"/>
+</PredClause>
+</EvalFunc>
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="PriceA_n" NewAttr="PriceA"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="PriceB_n" NewAttr="PriceB"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="PriceC_n" NewAttr="PriceC"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Price_1" NewAttr="PriceD"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="31" NodeType="INTERMEDIATE_OR_END" InputStreamName="Stock">
+<Schema>
+<AttrName Name="Name" Type="string"/>
+<AttrName Name="PriceA" Type="float"/>
+<AttrName Name="PriceB" Type="float"/>
+<AttrName Name="PriceC" Type="float"/>
+<AttrName Name="PriceD" Type="float"/>
+<AttrName Name="Price" Type="float"/>
+</Schema>
+<FilterEdge>
+<EvalFunc>
+<PredClause>
+<DynamicPred EventAttr="Name" OP="=" NodeAttr="Name"/>
+</PredClause>
+</EvalFunc>
+</FilterEdge>
+<ForwardEdge Destination="37">
+<EvalFunc>
+<PredClause>
+<ComplexPred Expr="EV.Price>=NODE.Price"/>
+<ComplexPred Expr="EV.Price&lt;=NODE.PriceA"/>
+</PredClause>
+</EvalFunc>
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Name" NewAttr="Name"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="PriceA" NewAttr="PriceA"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="PriceB" NewAttr="PriceB"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="PriceC" NewAttr="PriceC"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="PriceD" NewAttr="PriceD"/>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Price" NewAttr="PriceE"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="PriceF"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="37" NodeType="INTERMEDIATE_OR_END" >
+<Schema>
+<AttrName Name="Name" Type="string"/>
+<AttrName Name="PriceA" Type="float"/>
+<AttrName Name="PriceB" Type="float"/>
+<AttrName Name="PriceC" Type="float"/>
+<AttrName Name="PriceD" Type="float"/>
+<AttrName Name="PriceE" Type="float"/>
+<AttrName Name="PriceF" Type="float"/>
+</Schema>
+<OutputStreamName Name="MShapeStock" Type="OUT"/>
+</Node>
+</NFA>

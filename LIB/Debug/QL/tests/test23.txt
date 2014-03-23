@@ -1,0 +1,3 @@
+SELECT Name, Price_1_1 as FirstPrice, Price_1 as SecondPrice, Price as ThirdPrice
+FROM Stock NEXT{$1.Name = $2.Name AND $1.Price < $2.Price AND $2.Volume > 400} Stock NEXT{$1.Name = $2.Name} Stock
+PUBLISH T23

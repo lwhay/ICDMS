@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StreamType xmlns="http://tempuri.org/SIR_Schema.xsd" Name="Stock">
+	<AttrNameType Name="Name" Type="string"></AttrNameType>
+	<AttrNameType Name="Price" Type="float"></AttrNameType>
+</StreamType>

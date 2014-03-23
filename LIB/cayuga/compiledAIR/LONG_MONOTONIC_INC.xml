@@ -1,0 +1,36 @@
+<NFA>
+<Node NodeID="6" NodeType="START" InputStreamName="94">
+<ForwardEdge Destination="7">
+<EvalFunc>
+<PredClause>
+<StaticPred EventAttr="cnt" OP=">" Const="10"/>
+</PredClause>
+</EvalFunc>
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name_1" NewAttr="Name_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price_1" NewAttr="Price_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Volume_1" NewAttr="Volume_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="DUR_1" NewAttr="DUR_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="cnt" NewAttr="cnt"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Volume" NewAttr="Volume"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="DUR" NewAttr="DUR"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="7" NodeType="INTERMEDIATE_OR_END" >
+<Schema>
+<AttrName Name="Name_1" Type="string"/>
+<AttrName Name="Price_1" Type="float"/>
+<AttrName Name="Volume_1" Type="int"/>
+<AttrName Name="DUR_1" Type="float"/>
+<AttrName Name="cnt" Type="int"/>
+<AttrName Name="Name" Type="string"/>
+<AttrName Name="Price" Type="float"/>
+<AttrName Name="Volume" Type="int"/>
+<AttrName Name="DUR" Type="float"/>
+</Schema>
+<OutputStreamName Name="LONG_MONOTONIC_INC" Type="OUT"/>
+</Node>
+</NFA>

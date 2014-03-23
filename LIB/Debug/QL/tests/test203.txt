@@ -1,0 +1,4 @@
+SELECT IBMPrice, Price AS MSFTPrice
+FROM IBMStock
+NEXT{$2.Name='MSFT'}(Stock)
+PUBLISH IBM_MSFT_PAIR

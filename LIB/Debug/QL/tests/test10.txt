@@ -1,0 +1,3 @@
+SELECT *
+FROM Stock FOLD{$1.Name = $2.Name AND $.Price < $2.Price, ,} Stock 
+PUBLISH T10

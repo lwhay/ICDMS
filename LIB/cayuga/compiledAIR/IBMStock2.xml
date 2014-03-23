@@ -1,0 +1,21 @@
+<NFA>
+<Node NodeID="0" NodeType="START" InputStreamName="Stock">
+<ForwardEdge Destination="1">
+<EvalFunc>
+<PredClause>
+<StaticPred EventAttr="Price" OP=">" Const="83"/>
+<StaticPred EventAttr="Name" OP="=" Const="IBM"/>
+</PredClause>
+</EvalFunc>
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="IBMPrice"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="1" NodeType="INTERMEDIATE_OR_END" >
+<Schema>
+<AttrName Name="IBMPrice" Type="float"/>
+</Schema>
+<OutputStreamName Name="IBMStock2" Type="OUT"/>
+</Node>
+</NFA>

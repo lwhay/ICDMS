@@ -1,0 +1,3 @@
+SELECT 1 + 2 as Number, 'myName' as Name, CONTAINS(Name, 'IBM') as isIBM, 'SIM QUERY' as subject
+FROM Stock
+PUBLISH T12

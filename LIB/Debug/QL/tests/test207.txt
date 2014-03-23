@@ -1,0 +1,4 @@
+SELECT Price_1 AS IBMPrice1, Price AS IBMPrice2
+FROM (FILTER{Name='IBM' AND Price > 83}(Stock))
+NEXT{$2.Price > $1.Price} (FILTER{Name='IBM'}(Stock))
+PUBLISH IBM_PAIR

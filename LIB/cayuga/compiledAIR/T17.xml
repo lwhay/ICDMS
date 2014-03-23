@@ -1,0 +1,23 @@
+<NFA>
+<Node NodeID="0" NodeType="START" InputStreamName="Stock">
+<ForwardEdge Destination="1">
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Volume" NewAttr="Volume"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="DUR" NewAttr="DUR"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="SumPrice"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="1" NodeType="INTERMEDIATE_OR_END" >
+<Schema>
+<AttrName Name="Name" Type="string"/>
+<AttrName Name="Price" Type="float"/>
+<AttrName Name="Volume" Type="int"/>
+<AttrName Name="DUR" Type="float"/>
+<AttrName Name="SumPrice" Type="float"/>
+</Schema>
+<OutputStreamName Name="T17" Type="OUT"/>
+</Node>
+</NFA>

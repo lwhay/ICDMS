@@ -1,0 +1,3 @@
+SELECT * FROM
+FILTER {feed_url='http://news.google.com/'}(webfeeds)
+PUBLISH google_news_items

@@ -1,0 +1,4 @@
+SELECT Price AS IBMPrice
+FROM FILTER{Name='IBM'} 
+	(SELECT * FROM FILTER{Price > 83}(Stock))
+PUBLISH IBMStock2

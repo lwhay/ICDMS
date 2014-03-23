@@ -1,0 +1,3 @@
+SELECT *
+FROM Stock FOLD{} Stock 
+PUBLISH T9

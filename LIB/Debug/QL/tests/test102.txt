@@ -1,0 +1,7 @@
+SELECT * FROM
+(SELECT *, 1 AS cnt FROM
+FILTER {CONTAINS(summary,'iPod')=1}(webfeeds))
+FOLD {, $.cnt > 10 AND DUR < 1, $.cnt+1 AS cnt}
+(SELECT * FROM
+FILTER {CONTAINS(summary,'iPod')=1}(webfeeds))
+PUBLISH ipod_popularity

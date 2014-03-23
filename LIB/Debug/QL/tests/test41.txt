@@ -1,0 +1,4 @@
+SELECT * 
+FROM FILTER {Price_1 < 10} 
+(Stock NEXT {$1.Name=$2.Name} Stock)
+ PUBLISH T41

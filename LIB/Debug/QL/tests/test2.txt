@@ -1,0 +1,3 @@
+SELECT Name as n
+FROM Stock
+PUBLISH T2

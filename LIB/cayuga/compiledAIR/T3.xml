@@ -1,0 +1,20 @@
+<NFA>
+<Node NodeID="0" NodeType="START" InputStreamName="Stock">
+<ForwardEdge Destination="1">
+<EvalFunc>
+<PredClause>
+<StaticPred EventAttr="Name" OP="=" Const="IBM"/>
+</PredClause>
+</EvalFunc>
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="1" NodeType="INTERMEDIATE_OR_END" >
+<Schema>
+<AttrName Name="Name" Type="string"/>
+</Schema>
+<OutputStreamName Name="T3" Type="OUT"/>
+</Node>
+</NFA>

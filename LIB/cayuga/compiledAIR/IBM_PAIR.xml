@@ -1,0 +1,49 @@
+<NFA>
+<Node NodeID="0" NodeType="START" InputStreamName="Stock">
+<ForwardEdge Destination="1">
+<EvalFunc>
+<PredClause>
+<StaticPred EventAttr="Name" OP="=" Const="IBM"/>
+<StaticPred EventAttr="Price" OP=">" Const="83"/>
+</PredClause>
+</EvalFunc>
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Name" NewAttr="Name_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="Price_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Volume" NewAttr="Volume_1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="DUR" NewAttr="DUR_1"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="1" NodeType="INTERMEDIATE_OR_END" InputStreamName="Stock">
+<Schema>
+<AttrName Name="Name_1" Type="string"/>
+<AttrName Name="Price_1" Type="float"/>
+<AttrName Name="Volume_1" Type="int"/>
+<AttrName Name="DUR_1" Type="float"/>
+</Schema>
+<FilterEdge>
+<EvalFunc>
+<PredClause>
+<DynamicPred EventAttr="Price" OP=">" NodeAttr="Price_1"/>
+<StaticPred EventAttr="Name" OP="=" Const="IBM"/>
+</PredClause>
+</EvalFunc>
+</FilterEdge>
+<ForwardEdge Destination="7">
+<EvalFunc>
+</EvalFunc>
+<SchemaMap>
+<OldNewAttrPair OldAttrSource="NODE" OldAttr="Price_1" NewAttr="IBMPrice1"/>
+<OldNewAttrPair OldAttrSource="EV" OldAttr="Price" NewAttr="IBMPrice2"/>
+</SchemaMap>
+</ForwardEdge>
+</Node>
+<Node NodeID="7" NodeType="INTERMEDIATE_OR_END" >
+<Schema>
+<AttrName Name="IBMPrice1" Type="float"/>
+<AttrName Name="IBMPrice2" Type="float"/>
+</Schema>
+<OutputStreamName Name="IBM_PAIR" Type="OUT"/>
+</Node>
+</NFA>
